@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>MAPI - Movies API</title>
+</head>
+<body>
+    <!-- BEGIN | Header -->
+<header class="ht-header">
+	<div class="container">
+        <!--NAV | START-->
+		<nav class="navbar">
+				<div class="navbar-header__logo">
+					    <span>Mapi</span>
+                </div>
+                <!--BEGIN | CART AND LIKES-->
+                <div class="navbar-header__cart">
+                 
+                    <div class="navbar-header__cart-shopping">
+                        <a href="#target-content" >
+                            <svg class="icon navbar-header__cart--icon">
+                                <use xlink:href="img/svg/icons.svg#icon-shopping-cart"></use>
+                            </svg>
+                        </a>
+                        <div class="cart-circle">
+                            0
+                        </div>
+                    </div>
+                    <div class="navbar-header__cart-likes">
+                        <a href="#target-content1">
+
+                            <svg class="icon navbar-header__cart--icon">
+                                <use xlink:href="img/svg/icons.svg#icon-heart-o"></use></svg>
+                                <div class="likes-circle">0</div> 
+                        </a>
+                    </div>
+                </div>
+                  <!--END | CART AND LIKES-->
+	    </nav>
+        <!--NAV | END-->
+        
+	    <!-- SEARCH | BEGIN -->
+	    <div class="top-search">
+	    	<form action="" class="movie-search">
+                <input type="text" class="top-search__input" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+        
+                <button class="top-search__btn">
+                    <svg class="icon icon-search  top-search__btn--icon">
+                        <use xlink:href="img/svg/icons.svg#icon-search"></use>
+                    </svg>
+                </button>
+            </form>
+        </div>
+         <!-- SEARCH | END -->
+        <!-- SOCIAL MEDIA | START -->
+        <div class="social-link">
+            <p>Follow us:</p>
+            <a href="https://www.facebook.com/theodore.coding"> 
+                <svg class="icon social-link__icons  ">
+                   <use xlink:href="img/svg/icons.svg#icon-facebook"></use>
+                </svg>
+            </a>
+            <a href="https://twitter.com/Rick29702077">
+                <svg class="icon social-link__icons  ">
+                    <use xlink:href="img/svg/icons.svg#icon-twitter"></use>
+                </svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UCQanUcCNaBg-IM-k0u8z0oQ">
+                <svg class="icon social-link__icons  ">
+                   <use xlink:href="img/svg/icons.svg#icon-youtube"></use>
+               </svg>
+            </a>
+        </div>
+     <!-- SOCIAL MEDIA | END -->
+
+<!-- SLIDER | Start-->
+<div  class="movie__slider">
+    <!-- 
+        <div class="movie__slider-item">
+            <a href="#5555">
+                <img src="img/slider1.jpg" alt="" >
+            </a>
+        </div>
+  
+       <button class="movie__slider-left arrow-btn">
+            <svg class="icon">
+                <use xlink:href="img/svg/icons.svg#icon-arrow_back_ios"></use>
+            </svg>
+         </button>
+        <button class="movie__slider-right arrow-btn">
+            <svg class="icon">
+                <use xlink:href="img/svg/icons.svg#icon-arrow_forward_ios"></use>
+            </svg>
+        </button> -->
+</div>
+<!--END | Slider-->
+</header>
+<!-- END | Header -->
+
+<!--START | Content-->
+<section class="main-content">   
+    <!-- 
+        <div class="main-content__left">
+        
+        <div class="main-content__left--img">
+            <img src="./img/movie-single.jpg" alt="">
+        </div>
+        <div class="main-content__left--watch">
+            <button class='btn-watch'>
+                <svg class="icon  icon-watch">
+                    <use xlink:href="img/svg/icons.svg#icon-youtube"></use></svg> watch trailer
+            </button>
+        </div>
+        <div class="main-content__left--buy">
+            <button class='btn-watch'>
+                <svg class="icon  icon-buy">
+                    <use xlink:href="img/svg/icons.svg#icon-ticket"></use></svg>
+                    <span class="num-tickets">1</span> buy tickets
+            </button>
+        </div>
+
+    </div>
+    <div class="main-content__right">
+        <div class="main-content__right-title">Skyfall: Quantum of Spectre 2015</div>
+        <div class="main-content__right-social">
+            <div class="main-content__right-social--likes">
+               <button class="main-content__right-circle">
+                <svg class="icon likes">
+                    <use xlink:href="img/svg/icons.svg#icon-heart-o"></use>
+                </svg>
+               
+               </button>
+            
+            </div>
+            <div class="main-content__right-social--add">
+                <button class="main-content__right-circle">
+                <svg class="icon  add-ticket">
+                    <use xlink:href="img/svg/icons.svg#icon-plus-circle"></use>
+                </svg>
+                
+                </button>
+            
+            </div>
+            <div class="main-content__right-social--minus">
+                <button class="main-content__right-circle">
+                <svg class="icon  minus-ticket">
+                    <use xlink:href="img/svg/icons.svg#icon-minus-circle1"></use>
+                </svg>
+                </button>
+            </div>
+        </div>
+        <div class="main-content__right-reviews">
+            <div class="main-content__right-reviews-stars">
+               
+                    <svg class="icon icon-star">
+                        <use xlink:href="img/svg/icons.svg#icon-star"></use>
+                    </svg>
+                
+                <div class="main-content__right-reviews--numbers">
+                        <span class="review--number">8.1/10</span>
+                    <span class="review--people">  106 reviews</span>
+
+                </div>
+                <span class="rate-this-movie">
+                    Rate This Movie: 
+                    <svg class="icon icon-star">
+                        <use xlink:href="img/svg/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="icon icon-star">
+                        <use xlink:href="img/svg/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="icon icon-star">
+                        <use xlink:href="img/svg/icons.svg#icon-star"></use>
+                    </svg>
+                </span>
+            </div>
+            <div class="main-content__right-description">
+                <ul class="description">
+                    <li data-tab-target ="#overview" class="description-tab activeTab">Overview</li>
+                    <li data-tab-target ="#reviews" class="description-tab">Reviews</li>
+                    <li data-tab-target ="#castCrews" class="description-tab">Cast & Crew</li>
+                    <li data-tab-target ="#media" class="description-tab">Media</li>
+                </ul>
+                <div class="description-content">
+                    <div id="overview" class="description-content__item activeTab" data-tab-content>
+                       
+                        <p>Overview Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi optio ullam nihil officia fugit inventore. Ipsa soluta excepturi enim sint maxime ad impedit, similique minima, iure ut molestias aliquam cupiditate?</p>
+                    </div>
+                    <div id="reviews" class="description-content__item" data-tab-content>
+                       
+                        <p>Reviews Lorem ipsum dolor sit amet consectetur adipisicing elit.sssssssssssssssssssssssssssssssssss Excepturi optio ullam nihil officia fugit inventore. Ipsa soluta excepturi enim sint maxime ad impedit, similique minima, iure ut molestias aliquam cupiditate?</p>
+                    </div>
+                    <div id="castCrews" class="description-content__item" data-tab-content>
+                        
+                        <p> Cast Crews Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi optio ullam nihil officia fugit inventore. Ipsa soluta excepturi enim sint maxime ad impedit, similique minima, iure ut molestias aliquam cupiditate?</p>
+                    </div>
+                    <div id="media" class="description-content__item" data-tab-content>
+                        
+                        <p>Media Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi optio ullam nihil officia fugit inventore. Ipsa soluta excepturi enim sint maxime ad impedit, similique minima, iure ut molestias aliquam cupiditate?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</section>
+<!--END | Content-->
+<!--START | Shopping Cart Modal-->
+<div id="target-content" class="target-content">
+    <a href="#" class="close"></a>
+    <div id="target-inner" class="target-inner">
+        <div class="target-inner__image">
+            <img src="./img/movie-single.jpg" alt>
+        </div>
+        <div class="target-inner__container">
+            <!--
+            <div class="target-inner__list" data-deleteId='kxsrd87'>
+                <span class="target-inner__list--tickets">Num Tickets: 5 </span>
+                <span class="target-inner__list--title">Movie Name: Montenegro Royal Casino</span>
+                <button class="target-inner__list-delete">
+                    <svg class="icon target-inner__list-delete__icon">
+                        <use xlink:href="img/svg/icons.svg#icon-minus"></use>
+                    </svg>
+                </button>
+            </div> -->
+            <!-- <div class="target-inner__list" data-deleteId='kxsrd87'>
+                <span class="target-inner__list--tickets">Num Tickets: 5 </span>
+                <span class="target-inner__list--title">Movie Name: Montenegro Royal Casino</span>
+                <button class="target-inner__list-delete">
+                    <svg class="icon target-inner__list-delete__icon">
+                        <use xlink:href="img/svg/icons.svg#icon-minus"></use>
+                    </svg>
+                </button>
+            </div> -->
+        </div> 
+    </div>
+  </div>
+  <!--END | Shopping Cart Modal-->
+
+  <!--START | Liked  Modal-->
+<div id="target-content1" class="target-content1">
+    <a href="#" class="close1"></a>
+    <div id="target-inner1" class="target-inner1">
+      <ul class="likes__container">
+          <!-- 
+            <li class="likes__container--item">
+              <a href="#5555">
+                  <img src="img/slider1.jpg">
+                  <h2 class="title">Oblivion</h2>
+                  <span class="year">2020</span>
+                  <span class="imdb-score">8.1/10</span>
+              </a> 
+            </li> 
+        -->
+      </ul>
+    </div>
+  </div>
+  <!--END | Liked Modal-->
+
+    <!--BEGIN | Loader-->
+ <!-- <div class="loader">
+        <svg class="loader__icon">
+            <use xlink:href="img/svg/icons.svg#icon-spin-alt"></use></svg>
+        </svg>
+    </div> -->
+        <!--END | Loader-->
+    <!--END | Footer Start-->
+  <footer class="footer">
+      <div class="location">
+        <h4>MAPI</h4>
+        <div class="location__address">
+            Esplanade, Brighton VIC
+          </div>
+          <div class="location__email">
+            rick.sekuloski@thedorecoding.com
+          </div>
+          <div class="location__phone">
+            Call us: <span>(+01) 202 342 6789</span>
+          </div>
+       </div>
+       <div class="resources">
+           <h4>Resources</h4>
+          <ul class="footer-lists">
+              <li>About</li>
+              <li>Contact Us</li>
+              <li>Blog</li>
+              <li>Help Center</li>
+              <li>Blockbuster</li>
+          </ul>
+       </div>
+       <div class="legal">
+        <h4>Legal</h4>
+        <ul  class="footer-lists">
+            <li>Term of Use</li>
+            <li>Privacy Policy </li>
+            <li>Security</li>
+        </ul> 
+       </div>
+
+
+       <div class="newsletter">
+        <h4>My Social Media</h4>
+        <ul class="footer-lists">
+            <li> <a href="https://www.youtube.com/channel/UCQanUcCNaBg-IM-k0u8z0oQ">YouTube</a></li>
+            <li> <a href="https://twitter.com/Rick29702077">Twitter</a> </li>
+            <li> <a href="https://www.linkedin.com/in/rick-sekuloski/">LinkedIn</a></li>
+            <li> <a href="https://www.facebook.com/theodore.coding">Facebook</a></li>
+        </ul> 
+       </div>
+       <div class="copyright">
+           <h4>copyright</h4>
+        <a href="http://www.omdbapi.com/" target="_blank" class="link">OMDb API</a>
+        © by Rick Sekuloski. Powered by
+       </div>
+
+  </footer>
+    <!--END | Footer End-->
+
+</body>
+</html>
