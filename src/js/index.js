@@ -12,9 +12,10 @@ const searchController = async () => {
     if(query){
         //CREATE NEW OBJ FROM SEARCH CLASS
         data.search = new Search(query);
-
+        
         //MOVIE SEARCH
         await data.search.getSearchResult();
+        //DISPLAY THE DATA TO THE UI
         console.log(data.search.movies);
     }
 }

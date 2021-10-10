@@ -1,9 +1,8 @@
 export default class Search {
-
     constructor(query) {
         this.query = query;
     }
-
+    
     async getSearchResult() {
         // API key: ac8e4d79
         const key = `ac8e4d79`;
