@@ -1,0 +1,36 @@
+import uniqid from 'uniqid';
+
+export default class Cart {
+
+    constructor() {
+        this.moviesItems = [];
+    }
+
+    addItem(num, title, price) {
+        const item = {
+            //this.num = num;
+            id: uniqid(),
+            num,
+            title,
+            price
+        }
+        this.moviesItems.push(item);
+        return item;
+    }
+    showList() {
+        return this.moviesItems;
+    }
+
+    deleteItem(id) {
+        const index = this.moviesItems.findIndex(curr => curr.id === id);
+        this.moviesItems.splice(index, 1);
+    }
+
+    updateNumMovies(id, newNum) {
+        this.moviesItems.find(curr => curr.id === id).num = newNum;
+    }
+
+    calcPrice(numTickets) {
+        this.price = parseInt(numTickets) * 10;
+    }
+}
