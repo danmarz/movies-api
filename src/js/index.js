@@ -3,27 +3,30 @@ import { classNames, loader, stopLoader } from './includes/classSelector';
 import Search from './models/Search';
 import Movie from './models/Movie';
 import Cart from './models/Cart';
+import Like from './models/Like';
 import * as searchMovieView from './views/searchMovieView';
 import * as movieView from './views/movieView';
 import * as cartView from './views/cartView';
+import * as likeView from './views/likeView';
 
 /*
     GLOBAL APPLICATIoN STATE
     1. SEARCH OBJ
     2. MOVIE OBJ
     3. CART OBJ
+    4. LIKE OBJ
 */
 
 const data = {
 
 };
-window.data = data;
+// window.data = data;
 
 const searchController = async () => {
     //GET SEARCH QUERY FROM THE FORM
     // const query = `Batman`;
     const query = searchMovieView.getFormInput();
-    console.log(query);
+    // console.log(query);
     if (query) {
         //CREATE NEW OBJ FROM SEARCH CLASS
         data.search = new Search(query);
@@ -42,7 +45,7 @@ const searchController = async () => {
             //STOP LOADER
             stopLoader();
             //DISPLAY THE DATA TO THE UI
-            console.log(data.search.movies);
+            // console.log(data.search.movies);
             searchMovieView.displayResults(data.search.movies);
         } catch (error) {
             alert('Error while searching the movie')
@@ -54,6 +57,9 @@ const searchController = async () => {
 // const movie = new Movie('tt1483013');
 // movie.getMovie();
 //MOVIE CONTROLLER
+
+
+
 const movieController = async () => {
     const id = window.location.hash.replace('#', '');
     // console.log(id);
@@ -70,10 +76,10 @@ const movieController = async () => {
             //RESET THE MAIN CONTENT
             movieView.resetMain();
             //DISPLAY THE MOVIE
-            movieView.displayMovie(data.movie);
+            movieView.displayMovie(data.movie, data.like.checkMovieLikedStatus(id));
             //DISPLAY THE DESCRIPTIoN TABS
             movieDescription();
-            console.log(data.movie);
+            // console.log(data.movie);
         } catch (error) {
             alert('Something went wrong with fetching the movie from the ID')
         }
@@ -124,16 +130,88 @@ const cartController = () => {
     cartView.displayCartNumber(cartNumber.length);
 }
 
+//LIKE CONTROLLER
+const likeController = () => {
+    if (!data.like) data.like = new Like();
+
+    const likedId = data.movie.imdbID;
+
+    if (!data.like.checkMovieLikedStatus(likedId)) {
+
+        data.like.addLikedMovie(
+            data.movie.imdbID,
+            data.movie.poster,
+            data.movie.title,
+            data.movie.year,
+            data.movie.imdbRating);
+
+        //RESET LIKES ON MODEL
+        likeView.resetLikeModel();
+        //DISPLAY LIKE ON MODEL
+        likeView.displayLikeNumber(data.like.numberOfLikes());
+        const likes = data.like.showLikes();
+        likes.forEach(el => {
+            likeView.displayLikeModel(el);
+        });
+        //CHECK THE STATUS OF THE LIKE BTN
+        const checkIsLiked = data.like.checkMovieLikedStatus(data.like.id);
+        likeView.displayLike(!checkIsLiked);
+    }
+    else {
+        data.like.deleteLikedMovie(likedId);
+        likeView.displayLikeNumber(data.like.numberOfLikes());
+
+        //CHECK THE STATUS OF THE LIKE BTN
+        const checkIsLiked = data.like.checkMovieLikedStatus(data.like.id);
+        likeView.displayLike(checkIsLiked);
+
+        //RESET LIKES ON MODEL
+        likeView.resetLikeModel();
+        //DISPLAY LIKE ON MODEL
+        likeView.displayLikeNumber(data.like.numberOfLikes());
+        const likes = data.like.showLikes();
+        likes.forEach(el => {
+            likeView.displayLikeModel(el);
+        });
+    }
+};
+
 //EVENT LISTENERS
 
-//1. SEARCH FORM SUBMIT
+//1. BROWSER REFRESH LOCALSTORAGE
+
+window.addEventListener('load', () => {
+    window.data = data;
+    data.like = new Like();
+    data.cart = new Cart();
+
+    data.like.restoreDataLocalStorage();
+    //DISPLAY THE LIKES FROM LOCALSTORAGE
+    const likes = data.like.showLikes();
+    likes.forEach(el => {
+        likeView.displayLikeModel(el);
+    });
+    //DISPLAY LIKE NUMBER
+    likeView.displayLikeNumber(data.like.numberOfLikes());
+    //DISPLAY THE CART FROM LOCAL STORAGE
+    data.cart.restoreDataLocalStorage();
+    const movies = data.cart.showList();
+    movies.forEach(el => {
+        cartView.displayMovieItem(el);
+    });
+    //CART NUMBER
+    const cartNumber = data.cart.showList();
+    cartView.displayCartNumber(cartNumber.length);
+});
+
+//2. SEARCH FORM SUBMIT
 classNames.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     //CALL SEARCH CONTROLLER
     searchController();
 });
 
-//2. MOVIE SLIDER ARROW BTN LEFT AND RIGHT
+//3. MOVIE SLIDER ARROW BTN LEFT AND RIGHT
 classNames.movieSlider.addEventListener('click', e => {
     const sliderBtn = e.target.closest('.arrow-btn');
     // console.log(data.search.movies.length); //10
@@ -150,7 +228,7 @@ classNames.movieSlider.addEventListener('click', e => {
     };
 });
 
-//3. INCREASE OR DECREASE TICKET NUMBER, ADD TICKETS
+//4. INCREASE OR DECREASE TICKET NUMBER, ADD TICKETS TO CART, LIKE MOVIE
 classNames.mainContent.addEventListener('click', e => {
     if (e.target.matches('.main-content__right-social--add, .main-content__right-social--add *')) {
         data.movie.updateTickets('add');
@@ -165,9 +243,12 @@ classNames.mainContent.addEventListener('click', e => {
     else if (e.target.matches('.main-content__left--buy, .main-content__left--buy *')) {
         cartController();
     }
+    else if (e.target.matches('.main-content__right-social--likes, .main-content__right-social--likes *')) {
+        likeController();
+    }
 });
 
-//DELETE AND UPDATE THE CART
+//5. DELETE AND UPDATE THE CART
 classNames.cartContainer.addEventListener('click', e => {
     let id = e.target.closest('.target-inner__list');
     id = id.dataset.deleteid;
@@ -191,4 +272,3 @@ classNames.cartContainer.addEventListener('click', e => {
         }
     }
 });
-

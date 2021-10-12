@@ -6,6 +6,8 @@ export const classNames = {
     mainContent: document.querySelector('.main-content'),
     cartContainer: document.querySelector('.target-inner__container'),
     cartCircle: document.querySelector('.cart-circle'),
+    likeContainer: document.querySelector('.likes__container'),
+    likeCircle: document.querySelector('.likes-circle'),
 };
 
 export const loader = parent => {

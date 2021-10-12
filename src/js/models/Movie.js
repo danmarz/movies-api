@@ -11,6 +11,7 @@ export default class Movie {
             const data = await result.json();
             // console.log(data);
             this.title = data.Title;
+            this.year = data.Year;
             this.rated = data.Rated;
             this.imdbRating = data.imdbRating;
             this.runtime = data.Runtime;
@@ -77,5 +78,5 @@ export default class Movie {
     updateFromCart(num) {
         this.numTickets = num;
     }
-    
+
 }

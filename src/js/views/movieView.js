@@ -18,7 +18,7 @@ const movieRating = el => {
 };
 
 const actors = (actor, index) => `${index}. ${actor}`;
-export const displayMovie = movie => {
+export const displayMovie = (movie, like) => {
     const markup = `
     <div class="main-content__left">
         
@@ -47,7 +47,7 @@ export const displayMovie = movie => {
         <div class="main-content__right-social--likes">
            <button class="main-content__right-circle">
             <svg class="icon likes">
-                <use xlink:href="img/svg/icons.svg#icon-heart-o"></use>
+                <use xlink:href="img/svg/icons.svg#${like ? 'icon-heart' : 'icon-heart-o'}" class="icon-heart"></use>
             </svg>
            
            </button>
